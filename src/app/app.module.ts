@@ -10,7 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {AngularFireModule} from "angularfire2";
+import { AngularFireModule } from "angularfire2";
 import { FIREBASE_CONFIG } from "./firebase.credentials";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/database";
