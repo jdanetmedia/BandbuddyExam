@@ -14,6 +14,7 @@ export class LoginPage {
               private navParams: NavParams,
               private toast: ToastController,
               private data: DataService) {
+
   }
 
   login(event: LoginResponse) {
