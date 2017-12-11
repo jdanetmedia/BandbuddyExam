@@ -1,0 +1,15 @@
+<ion-item class="login__component">
+  <ion-label floating>Navn</ion-label>
+  <ion-input [(ngModel)]="profile.name" type="text"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label floating>Telefon</ion-label>
+  <ion-input [(ngModel)]="profile.phone" type="number"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label floating>Adresse</ion-label>
+  <ion-input [(ngModel)]="profile.address" type="text"></ion-input>
+</ion-item>
+<div padding>
+  <button ion-button block (click)="saveProfile()">Save profile</button>
+</div>

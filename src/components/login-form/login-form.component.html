@@ -1,0 +1,15 @@
+<ion-item class="login__component">
+  <ion-label floating>E-mail</ion-label>
+  <ion-input [(ngModel)]="account.email" type="email"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label floating>Password</ion-label>
+  <ion-input [(ngModel)]="account.password" type="password"></ion-input>
+</ion-item>
+<div padding>
+  <button ion-button block (click)="login()">Login</button>
+</div>
+<div class="register-forgot">
+  <button ion-button block clear >Glemt password?</button>
+  <button ion-button block clear (click)="navigateToRegisterPage()">Opret konto</button>
+</div>

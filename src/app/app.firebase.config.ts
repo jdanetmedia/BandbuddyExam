@@ -3,6 +3,6 @@ export const FIREBASE_CONFIG = {
   authDomain: "bandbuddyexam.firebaseapp.com",
   databaseURL: "https://bandbuddyexam.firebaseio.com",
   projectId: "bandbuddyexam",
-  storageBucket: "",
+  storageBucket: "bandbuddyexam.appspot.com",
   messagingSenderId: "358997463872"
 };

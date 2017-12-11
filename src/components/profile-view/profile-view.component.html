@@ -1,0 +1,10 @@
+<div *ngIf="userProfile">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Navn</ion-label>
+        <ion-input [value]="userProfile.name" [readonly]="true"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</div>

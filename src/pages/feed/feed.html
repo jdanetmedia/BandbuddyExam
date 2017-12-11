@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bandbuddy</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="background">
+    <ion-card *ngFor="let comment of commentsList">
+
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="comment.user.avatar">
+        </ion-avatar>
+        <h2>{{ comment.user.name }}</h2>
+        <p>Skin Tuxedo</p>
+      </ion-item>
+
+
+
+      <ion-card-content>
+        <p>{{ comment.lastMessage }}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <div class="comment-icon">
+          <button ion-button icon-left clear small>
+            <ion-icon name="ios-chatboxes-outline"></ion-icon>
+            <div>4</div>
+          </button>
+        </div>
+      </ion-row>
+
+    </ion-card>
+  </div>
+</ion-content>
