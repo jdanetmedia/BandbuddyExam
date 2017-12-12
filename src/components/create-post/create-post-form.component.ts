@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Post } from "../../models/post/post.interface";
+import { User } from "firebase";
+import { DataService } from "../../providers/data/data.service";
 
 @Component({
   selector: 'app-create-post-form',
@@ -6,11 +9,19 @@ import { Component } from '@angular/core';
 })
 export class CreatePostFormComponent {
 
-  text: string;
+  private authenticatedUser: User;
+  post = {} as Post;
 
-  constructor() {
-    console.log('Hello CreatePostComponent Component');
-    this.text = 'Hello World';
+  constructor(private data: DataService) {
+
+  }
+
+  async createPost() {
+    if (this.authenticatedUser) {
+      this.post.date = new Date();
+      const result = await this.data.createPost(this.authenticatedUser, this.post);
+      console.log(result);
+    }
   }
 
 }

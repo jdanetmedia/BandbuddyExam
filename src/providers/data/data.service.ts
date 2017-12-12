@@ -5,6 +5,7 @@ import { User } from 'firebase/app';
 import { Profile } from '../../models/profile/profile.interface';
 import 'rxjs/add/operator/take';
 import { Observable } from "rxjs/Observable";
+import { Post } from "../../models/post/post.interface";
 
 @Injectable()
 export class DataService {
@@ -30,8 +31,11 @@ export class DataService {
     });
   }
 
-  createPost() {
-    
+  createPost(user: User, post: Post) {
+    const itemRef = this.database.list(`/posts/${user.uid}`);
+    itemRef.push(post).then(() => {
+      console.log(post);
+    });
   }
 
 }
