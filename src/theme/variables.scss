@@ -47,26 +47,13 @@ $colors: (
   lgray:  #eee
 );
 
+/*
 ion-content {
   background: #666 !important;
   color: #333 !important;
 }
+*/
 
-button {
-  box-shadow: 0px 1px 2px black !important;
-}
-
-.button-inner {
-  color: #333;
-}
-
-.comment-icon button, #ion-diagnostics button {
-  box-shadow: none !important;
-}
-
-ion-navbar button {
-  box-shadow: none !important;
-}
 
 // App iOS Variables
 // --------------------------------------------------
@@ -94,7 +81,28 @@ ion-navbar button {
 // so that the above variables are used and Ionic's
 // default are overridden.
 
+
 @import "ionic.theme.default";
+
+ion-content .scroll-content {
+  background: #666;
+}
+
+ion-card button {
+  box-shadow: none !important;
+}
+
+button {
+  box-shadow: 0px 1px 3px black;
+}
+
+.comment-icon button, #ion-diagnostics button {
+  box-shadow: none;
+}
+
+ion-navbar button {
+  box-shadow: none;
+}
 
 
 // Ionicons
