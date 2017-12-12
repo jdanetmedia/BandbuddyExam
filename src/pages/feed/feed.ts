@@ -19,4 +19,8 @@ export class FeedPage {
     console.log(this.commentsList);
   }
 
+  goToCreatePost() {
+    this.navCtrl.push('CreatePostPage');
+  }
+
 }
