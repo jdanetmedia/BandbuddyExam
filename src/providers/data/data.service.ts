@@ -35,7 +35,6 @@ export class DataService {
     const itemRef = this.database.list(`/posts/${user.uid}`);
     itemRef.push(post).then(() => {
       console.log(post);
-
     });
   }
 
