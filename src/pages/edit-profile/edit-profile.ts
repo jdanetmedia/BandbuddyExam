@@ -15,11 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EditProfilePage {
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
+    console.log();
   }
 
 }
