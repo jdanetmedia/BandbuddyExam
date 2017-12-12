@@ -21,7 +21,9 @@ export class EditProfileFormComponent implements OnDestroy {
     this.authenticatedUser$ = this.auth.getAuthenticatedUser().subscribe((user: User) => {
       this.authenticatedUser = user;
       this.data.getProfile(user).subscribe(profile => {
-        this.profile = profile;
+        if(profile) {
+          this.profile = profile;
+        }
       });
     });
   }
