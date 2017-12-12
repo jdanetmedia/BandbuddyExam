@@ -1,15 +1,21 @@
 <ion-item class="login__component">
-  <ion-label floating>E-mail</ion-label>
-  <ion-input [(ngModel)]="account.email" type="email"></ion-input>
+  <!--<ion-label floating>E-mail</ion-label>-->
+  <ion-input placeholder="E-mail" [(ngModel)]="account.email" type="email" color="green"></ion-input>
 </ion-item>
 <ion-item>
-  <ion-label floating>Password</ion-label>
-  <ion-input [(ngModel)]="account.password" type="password"></ion-input>
+  <!--<ion-label floating>Password</ion-label>-->
+  <ion-input placeholder="Password" [(ngModel)]="account.password" type="password"></ion-input>
 </ion-item>
 <div padding>
-  <button ion-button block (click)="login()">Login</button>
+  <button ion-button block color="orange" (click)="login()">Login</button>
 </div>
 <div class="register-forgot">
-  <button ion-button block clear >Glemt password?</button>
-  <button ion-button block clear (click)="navigateToRegisterPage()">Opret konto</button>
+  <button class="test" ion-button block clear>Glemt password?</button>
+  <button ion-button block clear (click)="navigateToRegisterPage()">Opre konto</button>
 </div>
+
+
+<div class="test">
+  rasmusdoaskdghasldgkasædglkhasdægkhj
+</div>
+

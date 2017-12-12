@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="green">
     <ion-title>Bandbuddy</ion-title>
   </ion-navbar>
 
@@ -8,12 +8,13 @@
 
 
 <ion-content>
-  <div class="background">
+  <div color="green">
     <ion-item>
-      <div class="new-post">
+      <div class="new-post" (click)="goToCreatePost()">
         Hvad vil du sige...?
       </div>
     </ion-item>
+
     <ion-card *ngFor="let comment of commentsList">
 
       <ion-item>
