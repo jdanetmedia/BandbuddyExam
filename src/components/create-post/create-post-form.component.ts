@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Post } from "../../models/post/post.interface";
 import { User } from "firebase";
 import { DataService } from "../../providers/data/data.service";
+import { Subscription } from "rxjs/Subscription";
+import { AuthService } from "../../providers/auth/auth.service";
 
 @Component({
   selector: 'app-create-post-form',
@@ -9,11 +11,15 @@ import { DataService } from "../../providers/data/data.service";
 })
 export class CreatePostFormComponent {
 
+  private authenticatedUser$: Subscription;
   private authenticatedUser: User;
   post = {} as Post;
 
-  constructor(private data: DataService) {
-
+  constructor(private data: DataService,
+              private auth: AuthService) {
+    this.authenticatedUser$ = this.auth.getAuthenticatedUser().subscribe((user: User) => {
+      this.authenticatedUser = user;
+    });
   }
 
   async createPost() {
