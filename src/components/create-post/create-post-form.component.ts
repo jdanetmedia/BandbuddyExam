@@ -17,10 +17,14 @@ export class CreatePostFormComponent {
   }
 
   async createPost() {
+    console.log('test');
+
     if (this.authenticatedUser) {
+
       this.post.date = new Date();
       const result = await this.data.createPost(this.authenticatedUser, this.post);
       console.log(result);
+
     }
   }
 
