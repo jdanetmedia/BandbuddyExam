@@ -4,8 +4,6 @@ import { User } from "firebase";
 import { DataService } from "../../providers/data/data.service";
 import { Subscription } from "rxjs/Subscription";
 import { AuthService } from "../../providers/auth/auth.service";
-import { NavController, ToastController } from "ionic-angular";
-import { Profile } from "../../models/profile/profile.interface";
 
 @Component({
   selector: 'app-create-post-form',
@@ -15,32 +13,23 @@ export class CreatePostFormComponent {
 
   private authenticatedUser$: Subscription;
   private authenticatedUser: User;
-
   post = {} as Post;
-  profile = {} as Profile;
 
   constructor(private data: DataService,
-              private auth: AuthService,
-              private toast: ToastController,
-              private navCtrl: NavController) {
+              private auth: AuthService) {
     this.authenticatedUser$ = this.auth.getAuthenticatedUser().subscribe((user: User) => {
       this.authenticatedUser = user;
-      this.data.getProfile(user).subscribe(profile => {
-        if(profile) {
-          this.profile = profile;
-        }
-      });
     });
   }
 
   async createPost() {
-    if (this.authenticatedUser) {
-      this.post.date = new Date();
-      this.post.author = this.profile.userName;
+    console.log('test');
 
-      const result = await this.data.createPost(this.post);
-      this.navCtrl.setRoot('FeedPage');
-      this.toast.create({message: 'Du har oprettet en post.', duration: 3000}).present();
+    if (this.authenticatedUser) {
+
+      this.post.date = new Date();
+      const result = await this.data.createPost(this.authenticatedUser, this.post);
+      console.log(result);
 
     }
   }
