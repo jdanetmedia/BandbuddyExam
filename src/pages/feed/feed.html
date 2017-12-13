@@ -42,4 +42,21 @@
 
     </ion-card>
   </div>
+
+
+
+
+
+      <ion-card *ngFor="let post of postList$ | async" >
+
+        <ion-card-content>
+          <h2>{{post.author}}</h2>
+          <p>{{post.postContent}}</p>
+      </ion-card-content>
+
+      </ion-card>
+
+
+
+
 </ion-content>

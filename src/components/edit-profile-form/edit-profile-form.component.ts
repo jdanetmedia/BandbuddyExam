@@ -38,9 +38,7 @@ export class EditProfileFormComponent implements OnDestroy {
       const result = await this.data.saveProfile(this.authenticatedUser, this.profile);
       console.log(result);
       this.navCtrl.setRoot('FeedPage');
-      console.log('PIK!!!');
       this.toast.create({message: 'Profilinfo for ' + this.profile.userName + ' er opdateret.', duration: 3000}).present();
-
     }
   }
 
