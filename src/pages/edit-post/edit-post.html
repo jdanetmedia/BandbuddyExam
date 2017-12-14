@@ -1,0 +1,21 @@
+<ion-header color="green">
+
+  <ion-navbar>
+    <ion-title>editPost</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-textarea autofocus rows="12" placeholder="Hvad vil du gerne dele...?"></ion-textarea>
+    </ion-card-content>
+    <ion-buttons end>
+      <button ion-button icon-only end clear (click)="createPost()">
+        <ion-icon name="ios-send-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-card>
+</ion-content>
