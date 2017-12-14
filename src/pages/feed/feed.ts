@@ -5,7 +5,6 @@ import { Comment } from "../../models/comments/comment.interface";
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
 import { Post } from "../../models/post/post.interface";
-import {User} from "firebase";
 
 @IonicPage()
 @Component({
