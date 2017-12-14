@@ -4,6 +4,8 @@ import { User } from "firebase";
 import { DataService } from "../../providers/data/data.service";
 import { Subscription } from "rxjs/Subscription";
 import { AuthService } from "../../providers/auth/auth.service";
+import { Profile } from "../../models/profile/profile.interface";
+import { NavController } from "ionic-angular";
 
 @Component({
   selector: 'app-create-post-form',
@@ -14,19 +16,30 @@ export class CreatePostFormComponent {
   private authenticatedUser$: Subscription;
   private authenticatedUser: User;
   post = {} as Post;
+  profile = {} as Profile;
 
   constructor(private data: DataService,
-              private auth: AuthService) {
+              private auth: AuthService,
+              private navCtrl: NavController) {
     this.authenticatedUser$ = this.auth.getAuthenticatedUser().subscribe((user: User) => {
       this.authenticatedUser = user;
+      this.data.getProfile(user).subscribe(profile => {
+        if(profile) {
+          this.profile = profile;
+        }
+      });
     });
   }
 
   async createPost() {
     if (this.authenticatedUser) {
-      this.post.date = new Date();
-      const result = await this.data.createPost(this.authenticatedUser, this.post);
+      this.post.author = this.profile.name;
+      this.post.avatar = this.profile.avatar;
+      this.post.date = new Date().toDateString();
+      const result = await this.data.createPost(this.post);
       console.log(result);
+      this.post.postContent = '';
+      this.navCtrl.pop();
     }
   }
 

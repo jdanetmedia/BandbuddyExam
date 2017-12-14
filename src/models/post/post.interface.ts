@@ -1,5 +1,8 @@
+import { User } from "firebase";
+
 export interface Post {
-  date: Date;
+  date: string;
   postContent: string;
-  tag: string;
+  author: string;
+  avatar: string;
 }

@@ -31,8 +31,8 @@ export class DataService {
     });
   }
 
-  createPost(user: User, post: Post) {
-    const itemRef = this.database.list(`/posts/${user.uid}`);
+  createPost(post: Post) {
+    const itemRef = this.database.list<Post>('/posts/');
     itemRef.push(post).then(() => {
       console.log(post);
     });

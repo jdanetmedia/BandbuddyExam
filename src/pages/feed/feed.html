@@ -1,11 +1,8 @@
 <ion-header>
-
   <ion-navbar color="green">
     <ion-title>Bandbuddy</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content>
   <div color="green">
@@ -15,31 +12,21 @@
       </div>
     </ion-item>
 
-    <ion-card *ngFor="let comment of commentsList">
-
+    <ion-card *ngFor="let post of postList | async">
       <ion-item>
         <ion-avatar item-start>
-          <img [src]="comment.user.avatar">
+          <img *ngIf="!post.avatar" src="assets/imgs/profile-placeholder.png">
+          <img *ngIf="post.avatar" [src]="post.avatar">
         </ion-avatar>
-        <h2>{{ comment.user.name }}</h2>
+        <h2>{{ post.author}}</h2>
         <p>Skin Tuxedo</p>
-      </ion-item>
-
-
-
-      <ion-card-content>
-        <p>{{ comment.lastMessage }}</p>
-      </ion-card-content>
-
-      <ion-row>
-        <div class="comment-icon">
-          <button ion-button icon-left clear small>
-            <ion-icon name="ios-chatboxes-outline"></ion-icon>
-            <div>4</div>
-          </button>
+        <div class="post-date">
+          {{ post.date | date: 'dd/MM/yyyy'}}
         </div>
-      </ion-row>
-
+      </ion-item>
+      <ion-card-content>
+        <p>{{ post.postContent }}</p>
+      </ion-card-content>
     </ion-card>
   </div>
 </ion-content>
