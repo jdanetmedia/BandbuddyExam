@@ -17,8 +17,8 @@ export class TabsPage {
 
     this.tab1root = 'FeedPage';
     this.tab2root = 'EditProfilePage';
-    this.tab3root = 'ProfilePage';
-    this.tab4root = 'ProfilePage';
+    this.tab3root = 'ArchivePage';
+    this.tab4root = 'NotificationsPage';
 
   }
 
