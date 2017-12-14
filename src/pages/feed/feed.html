@@ -15,7 +15,6 @@
     <ion-card *ngFor="let post of postList | async">
       <ion-item>
         <ion-avatar item-start>
-          <img *ngIf="!post.avatar" src="assets/imgs/profile-placeholder.png">
           <img *ngIf="post.avatar" [src]="post.avatar">
         </ion-avatar>
         <h2>{{ post.author}}</h2>
@@ -29,21 +28,4 @@
       </ion-card-content>
     </ion-card>
   </div>
-
-
-
-
-
-      <ion-card *ngFor="let post of postList$ | async" >
-
-        <ion-card-content>
-          <h2>{{post.author}}</h2>
-          <p>{{post.postContent}}</p>
-      </ion-card-content>
-
-      </ion-card>
-
-
-
-
 </ion-content>
