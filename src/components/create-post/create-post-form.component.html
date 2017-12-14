@@ -1,6 +1,6 @@
 <ion-card>
   <ion-card-content>
-    <ion-textarea rows="12" placeholder="Hvad vil du gerne dele...?" [(ngModel)]="post.postContent"></ion-textarea>
+    <ion-textarea autofocus rows="12" placeholder="Hvad vil du gerne dele...?" [(ngModel)]="post.postContent"></ion-textarea>
   </ion-card-content>
   <ion-buttons end>
     <button ion-button icon-only end clear (click)="createPost()">
