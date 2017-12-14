@@ -30,4 +30,8 @@ export class FeedPage {
     this.navCtrl.push('CreatePostPage');
   }
 
+  goToEditPost() {
+    this.navCtrl.push('EditPostPage');
+  }
+
 }

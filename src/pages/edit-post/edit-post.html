@@ -1,10 +1,4 @@
-<!--
-  Generated template for the EditPostPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<ion-header color="green">
 
   <ion-navbar>
     <ion-title>editPost</ion-title>
@@ -14,5 +8,14 @@
 
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-card-content>
+      <ion-textarea autofocus rows="12" placeholder="Hvad vil du gerne dele...?"></ion-textarea>
+    </ion-card-content>
+    <ion-buttons end>
+      <button ion-button icon-only end clear (click)="createPost()">
+        <ion-icon name="ios-send-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-card>
 </ion-content>
