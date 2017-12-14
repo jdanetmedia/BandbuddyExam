@@ -4,8 +4,8 @@ import { User } from "firebase";
 import { DataService } from "../../providers/data/data.service";
 import { Subscription } from "rxjs/Subscription";
 import { AuthService } from "../../providers/auth/auth.service";
-import { Profile } from "../../models/profile/profile.interface";
 import { NavController } from "ionic-angular";
+import { Profile } from "../../models/profile/profile.interface";
 
 @Component({
   selector: 'app-create-post-form',
