@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthService } from "../../providers/auth/auth.service";
+import * as firebase from "firebase";
 
 /**
  * Generated class for the EditProfilePage page.
@@ -16,12 +18,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class EditProfilePage {
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public auth: AuthService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
     console.log();
+  }
+
+  logOut() {
+    this.auth.logOut();
   }
 
 }

@@ -21,11 +21,14 @@ export class MyApp {
 
       firebase.initializeApp(FIREBASE_CONFIG);
 
-      const unsubscribe = firebase.auth().onAuthStateChanged(user => { if (!user) {
-        this.rootPage = 'LoginPage';
-        unsubscribe(); }else{
-        this.rootPage = 'TabsPage';
-        unsubscribe(); }
+      const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+        if (!user) {
+          this.rootPage = 'LoginPage';
+          unsubscribe();
+        } else {
+          this.rootPage = 'TabsPage';
+          unsubscribe();
+        }
       });
     });
   }
