@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/database";
-import { Camera } from '@ionic-native/camera'
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
