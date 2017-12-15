@@ -5,10 +5,9 @@
 </ion-header>
 
 <ion-content>
-  <div color="green">
-    <ion-item>
+    <ion-item class="new-post">
       <div autofocus class="new-post" (click)="goToCreatePost()">
-        Hvad vil du stige...?
+        Hvad vil du sige...?
       </div>
     </ion-item>
 
@@ -23,10 +22,9 @@
       </ion-item>
 
       <ion-card-content>
-        <p>{{ post.postContent }}</p>
-      </ion-card-content>
+          <p>{{ post.postContent }}</p>
+        </ion-card-content>
     </ion-card>
 
 
-  </div>
 </ion-content>

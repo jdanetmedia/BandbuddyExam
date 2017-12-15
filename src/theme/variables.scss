@@ -34,8 +34,8 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    (base: #488aff, contrast: #fff),
-  secondary:  #32db64,
+  primary:    (base: #4EA28D, contrast: #fff),
+  secondary:  #FF9500,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
@@ -95,6 +95,7 @@ ion-card button {
 
 button {
   box-shadow: 0px 1px 3px black;
+  text-transform: uppercase !important;
 }
 
 .comment-icon button, #ion-diagnostics button {
@@ -109,6 +110,9 @@ ion-navbar button {
   color: gray;
 }
 
+$background: #654321 !important;
+$action-sheet-ios-background: yellow !important;
+$action-sheet-md-background: yellow !important;
 
 // Ionicons
 // --------------------------------------------------
