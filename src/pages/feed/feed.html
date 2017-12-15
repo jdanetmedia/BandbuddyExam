@@ -11,7 +11,7 @@
       </div>
     </ion-item>
 
-    <ion-card *ngFor="let post of postList" [navParams]="{post: post}" navPush="EditPostPage">
+    <ion-card *ngFor="let post of postList | async" navPush="EditPostPage" [navParams]="{post: post}">
       <ion-item>
         <ion-avatar item-start>
           <div class="img-circle">

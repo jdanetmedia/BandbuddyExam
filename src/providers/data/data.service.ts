@@ -10,13 +10,17 @@ import { Post } from "../../models/post/post.interface";
 @Injectable()
 export class DataService {
 
-  private postListRef = this.database.list<Post>('posts');
+  private postListRef = this.database.list<Post>('/posts');
 
   constructor(private database: AngularFireDatabase) {
   }
 
   getProfile(user: User): Observable<Profile> {
     return this.database.object(`/profiles/${user.uid}`).valueChanges();
+  }
+
+  getPostList() {
+    return this.postListRef;
   }
 
   saveProfile(user: User, profile: Profile) {
@@ -33,5 +37,22 @@ export class DataService {
       console.log(post);
     });
   }
+
+  editPost(post: Post) {
+    return this.postListRef.update(post.key, post);
+  }
+
+  deletePost(post: Post) {
+    return this.postListRef.remove(post.key);
+  }
+
+
+ /* editPost(post: Post) {
+    console.log(post);
+    const itemRef = this.database.list<Post>('/posts/');
+    itemRef.push(post).then(() => {
+      console.log(post);
+    });
+  }*/
 
 }

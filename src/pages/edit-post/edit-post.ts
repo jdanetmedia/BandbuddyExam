@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Post } from "../../models/post/post.interface";
-import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
-import { Observable } from "rxjs/Observable";
+import { DataService } from "../../providers/data/data.service";
+
 
 /**
  * Generated class for the EditPostPage page.
@@ -18,17 +18,12 @@ import { Observable } from "rxjs/Observable";
 })
 export class EditPostPage {
 
-  post = {} as Post;
-  postsRef: AngularFireList<any>;
-  posts: Observable<any[]>;
+  post: Post;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public database: AngularFireDatabase) {
-    this.postsRef = this.database.list('posts');
-    this.posts = this.postsRef.snapshotChanges().map(changes => {
-      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-    });
+              private data: DataService) {
+
   }
 
   ionViewDidLoad() {
@@ -37,11 +32,23 @@ export class EditPostPage {
 
   ionViewWillLoad() {
     this.post = this.navParams.get('post');
-    console.log(this.post);
   }
 
-  editPost(key: string, updateContent: string) {
-    this.postsRef.update(key, { postContent: updateContent });
-  }
+   editPost(post: Post) {
+    //if (this.authenticatedUser) {
+      //this.post.author = this.profile.name;
+      //this.post.avatar = this.profile.avatar ? this.profile.avatar : '../../assets/imgs/profile-placeholder.png';
+      this.post.date = new Date().toDateString();
+      const result =  this.data.editPost(post);
+      console.log(result);
+      this.post.postContent = '';
+      this.navCtrl.pop();
+    }
+
+    deletePost(post: Post) {
+      this.data.deletePost(post);
+      this.navCtrl.pop();
+    }
+  //}
 
 }
