@@ -3,10 +3,12 @@ import { Subscription } from "rxjs/Subscription";
 import { User } from 'firebase/app';
 import { NavController } from "ionic-angular";
 import { ToastController } from "ionic-angular";
+import { storage } from 'firebase';
 
 import { Profile } from '../../models/profile/profile.interface';
 import { DataService } from '../../providers/data/data.service';
 import { AuthService } from "../../providers/auth/auth.service";
+import { Camera, CameraOptions } from "@ionic-native/camera";
 
 @Component({
   selector: 'app-edit-profile-form',
@@ -21,7 +23,8 @@ export class EditProfileFormComponent implements OnDestroy {
   constructor(private data: DataService,
               private auth: AuthService,
               private navCtrl: NavController,
-              private toast: ToastController) {
+              private toast: ToastController,
+              private camera: Camera) {
     this.authenticatedUser$ = this.auth.getAuthenticatedUser().subscribe((user: User) => {
       this.authenticatedUser = user;
       this.data.getProfile(user).subscribe(profile => {
@@ -38,6 +41,30 @@ export class EditProfileFormComponent implements OnDestroy {
       const result = await this.data.saveProfile(this.authenticatedUser, this.profile);
       this.navCtrl.setRoot('FeedPage');
       this.toast.create({message: 'Profilinfo for ' + this.profile.userName + ' er opdateret.', duration: 3000}).present();
+    }
+  }
+
+  async takePhoto() {
+    try {
+      // Camera options
+      const options: CameraOptions = {
+        quality: 50,
+        targetWidth: 600,
+        targetHeight: 600,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        correctOrientation: true
+      }
+      const result = await this.camera.getPicture(options);
+
+      const image = `data:image/jpeg;base64,${result}`;
+
+      const pictures = storage().ref('pictures/profilbillede');
+      pictures.putString(image, 'data_url');
+    }
+    catch(e) {
+      console.error(e);
     }
   }
 
