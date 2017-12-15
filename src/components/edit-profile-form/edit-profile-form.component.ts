@@ -60,7 +60,7 @@ export class EditProfileFormComponent implements OnDestroy {
 
       const image = `data:image/jpeg;base64,${result}`;
 
-      const pictures = storage().ref(`profilbilleder/${this.authenticatedUser.uid}`);
+      const pictures = storage().ref('pictures/profilbillede' + this.authenticatedUser.uid);
       pictures.putString(image, 'data_url');
     }
     catch(e) {
