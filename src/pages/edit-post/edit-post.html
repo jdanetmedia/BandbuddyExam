@@ -10,10 +10,10 @@
 <ion-content padding>
   <ion-card>
     <ion-card-content>
-      <ion-textarea autofocus rows="12" placeholder="Hvad vil du gerne dele...?"></ion-textarea>
+      <ion-textarea autofocus rows="12" [(ngModel)]="post.postContent"></ion-textarea>
     </ion-card-content>
     <ion-buttons end>
-      <button ion-button icon-only end clear (click)="createPost()">
+      <button ion-button icon-only end clear (click)="editPost()">
         <ion-icon name="ios-send-outline"></ion-icon>
       </button>
     </ion-buttons>

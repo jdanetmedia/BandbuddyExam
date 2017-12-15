@@ -39,4 +39,12 @@ export class DataService {
     });
   }
 
+  editPost(post: Post) {
+    console.log(post);
+    const itemRef = this.database.list<Post>('/posts/');
+    itemRef.push(post).then(() => {
+      console.log(post);
+    });
+  }
+
 }

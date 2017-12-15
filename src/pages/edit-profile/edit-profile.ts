@@ -25,7 +25,6 @@ export class EditProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
-    console.log();
   }
 
   logOut() {
