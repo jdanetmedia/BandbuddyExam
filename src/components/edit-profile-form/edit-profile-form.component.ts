@@ -63,6 +63,7 @@ export class EditProfileFormComponent implements OnDestroy {
       // const pictures = storage().ref('pictures/profilbillede');
       const pictures = storage().ref(`/profilbilleder/profil-${this.authenticatedUser.uid}`);
       pictures.putString(image, 'data_url');
+      this.profile.avatar = `gs://bandbuddyexam.appspot.com/profilbilleder/profil-${this.authenticatedUser.uid}`;
     }
     catch(e) {
       console.error(e);
