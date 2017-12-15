@@ -5,6 +5,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { EditProfileFormComponent } from './edit-profile-form/edit-profile-form.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { CreatePostFormComponent } from './create-post/create-post-form.component';
+import { CustomHeaderComponent } from './custom-header/custom-header.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { CreatePostFormComponent } from './create-post/create-post-form.componen
     RegisterFormComponent,
     EditProfileFormComponent,
     ProfileViewComponent,
-    CreatePostFormComponent
+    CreatePostFormComponent,
+    CustomHeaderComponent
   ],
   imports: [
     IonicModule
@@ -22,7 +24,8 @@ import { CreatePostFormComponent } from './create-post/create-post-form.componen
     RegisterFormComponent,
     EditProfileFormComponent,
     ProfileViewComponent,
-    CreatePostFormComponent
+    CreatePostFormComponent,
+    CustomHeaderComponent
   ]
 })
 
