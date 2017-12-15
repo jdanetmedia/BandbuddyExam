@@ -36,6 +36,7 @@ export class CreatePostFormComponent {
       this.post.author = this.profile.name;
       this.post.avatar = this.profile.avatar ? this.profile.avatar : '../../assets/imgs/profile-placeholder.png';
       this.post.date = new Date().toDateString();
+      this.post.id = Date();
       const result = await this.data.createPost(this.post);
       console.log(result);
       this.post.postContent = '';

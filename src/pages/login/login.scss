@@ -1,10 +1,12 @@
 page-login {
-
+  ion-tabs {
+    display: none !important;
+    opacity: 0 !important;
+  }
   img {
     margin: 0 auto;
     display: block;
   }
-
   ion-content .scroll-content {
     background: #4EA28D !important;
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Account } from '../../models/account/account.interface';
 import { LoginResponse } from '../../models/login/login-response.interface';
+import { NavController } from "ionic-angular";
 
 @Injectable()
 export class AuthService {
@@ -41,8 +42,8 @@ export class AuthService {
     }
   }
 
-  async logOut() {
-    this.auth.auth.signOut();
+  async logOut(): Promise<any> {
+    return this.auth.auth.signOut();
   }
 
 }

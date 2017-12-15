@@ -10,11 +10,23 @@ import { DataService } from "../../providers/data/data.service";
 })
 export class LoginPage {
 
+  tabBarElement;
+
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
               private toast: ToastController,
               private data: DataService) {
+    this.tabBarElement = document.querySelector("ion-tabbar");
+  }
 
+  onViewWillEnter()
+  {
+    this.tabBarElement.style.display = 'none';
+  }
+
+  onViewWillLeave()
+  {
+    this.tabBarElement.style.display = 'block';
   }
 
   login(event: LoginResponse) {

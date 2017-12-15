@@ -10,7 +10,7 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: string = 'FeedPage';
+  rootPage: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from "../../providers/auth/auth.service";
-import * as firebase from "firebase";
-
-/**
- * Generated class for the EditProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -29,7 +21,10 @@ export class EditProfilePage {
   }
 
   logOut() {
-    this.auth.logOut();
+    this.auth.logOut().then(() => {
+      console.log('Trying login');
+      this.navCtrl.setRoot('LoginPage');
+    });
   }
 
 }

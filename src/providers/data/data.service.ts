@@ -10,19 +10,14 @@ import { Post } from "../../models/post/post.interface";
 @Injectable()
 export class DataService {
 
+  private postListRef = this.database.list<Post>('posts');
+
   constructor(private database: AngularFireDatabase) {
   }
 
   getProfile(user: User): Observable<Profile> {
     return this.database.object(`/profiles/${user.uid}`).valueChanges();
   }
-
-  //  saveProfile(user: User, profile: Profile) {
-  //    this.profileObject = this.database.list<Profile>(`/profiles/${user.uid}`).update(user.uid, user)
-  //      .then( () => {
-  //      console.log('Maybe saved?');
-  //    });
-  // }
 
   saveProfile(user: User, profile: Profile) {
     const itemRef = this.database.object(`/profiles/${user.uid}`);
