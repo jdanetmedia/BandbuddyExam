@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Post } from "../../models/post/post.interface";
 import { DataService } from "../../providers/data/data.service";
 
+
 /**
  * Generated class for the EditPostPage page.
  *
@@ -17,9 +18,12 @@ import { DataService } from "../../providers/data/data.service";
 })
 export class EditPostPage {
 
-  post = {} as Post;
+  post: Post;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private data: DataService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private data: DataService) {
+
   }
 
   ionViewDidLoad() {
@@ -30,14 +34,19 @@ export class EditPostPage {
     this.post = this.navParams.get('post');
   }
 
-  async editPost() {
+   editPost(post: Post) {
     //if (this.authenticatedUser) {
       //this.post.author = this.profile.name;
       //this.post.avatar = this.profile.avatar ? this.profile.avatar : '../../assets/imgs/profile-placeholder.png';
       this.post.date = new Date().toDateString();
-      const result = await this.data.editPost(this.post);
+      const result =  this.data.editPost(post);
       console.log(result);
       this.post.postContent = '';
+      this.navCtrl.pop();
+    }
+
+    deletePost(post: Post) {
+      this.data.deletePost(post);
       this.navCtrl.pop();
     }
   //}

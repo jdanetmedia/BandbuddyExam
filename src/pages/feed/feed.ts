@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { COMMENT_LIST } from "../../mocks/comments/comments";
-import { Comment } from "../../models/comments/comment.interface";
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
 import { Post } from "../../models/post/post.interface";
+import { DataService } from "../../providers/data/data.service";
 
 @IonicPage()
 @Component({
@@ -13,17 +12,22 @@ import { Post } from "../../models/post/post.interface";
 })
 export class FeedPage {
 
-  commentsList: Comment[] = COMMENT_LIST;
-  postList: Observable<any[]>;
+  postList: Observable<Post[]>;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private data: AngularFireDatabase) {
-    this.postList = this.data.list<Post[]>('/posts/').valueChanges().map( (arr) => { return arr.reverse(); } );
+  constructor(public navCtrl: NavController, private data: DataService) {
+    this.postList = this.data
+      .getPostList() //DB list
+      .snapshotChanges() // Key and values
+      .map( changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }));
+      });
   }
 
+
   ionViewDidLoad() {
-    console.log(this.commentsList);
+
   }
 
   goToCreatePost() {

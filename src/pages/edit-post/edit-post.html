@@ -13,9 +13,16 @@
       <ion-textarea autofocus rows="12" [(ngModel)]="post.postContent"></ion-textarea>
     </ion-card-content>
     <ion-buttons end>
-      <button ion-button icon-only end clear (click)="editPost()">
+      <button ion-button icon-only end clear (click)="editPost(post)">
         <ion-icon name="ios-send-outline"></ion-icon>
       </button>
     </ion-buttons>
   </ion-card>
+
+
+    <div padding>
+      <button ion-button clear block (click)="deletePost(post)">Slet opslag</button>
+    </div>
+
+
 </ion-content>

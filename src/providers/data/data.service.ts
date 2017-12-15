@@ -10,6 +10,8 @@ import { Post } from "../../models/post/post.interface";
 @Injectable()
 export class DataService {
 
+  private postListRef = this.database.list<Post>('/posts');
+
   constructor(private database: AngularFireDatabase) {
   }
 
@@ -17,12 +19,9 @@ export class DataService {
     return this.database.object(`/profiles/${user.uid}`).valueChanges();
   }
 
-  //  saveProfile(user: User, profile: Profile) {
-  //    this.profileObject = this.database.list<Profile>(`/profiles/${user.uid}`).update(user.uid, user)
-  //      .then( () => {
-  //      console.log('Maybe saved?');
-  //    });
-  // }
+  getPostList() {
+    return this.postListRef;
+  }
 
   saveProfile(user: User, profile: Profile) {
     const itemRef = this.database.object(`/profiles/${user.uid}`);
@@ -40,11 +39,20 @@ export class DataService {
   }
 
   editPost(post: Post) {
+    return this.postListRef.update(post.key, post);
+  }
+
+  deletePost(post: Post) {
+    return this.postListRef.remove(post.key);
+  }
+
+
+ /* editPost(post: Post) {
     console.log(post);
     const itemRef = this.database.list<Post>('/posts/');
     itemRef.push(post).then(() => {
       console.log(post);
     });
-  }
+  }*/
 
 }
