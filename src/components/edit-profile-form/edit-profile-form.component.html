@@ -1,6 +1,8 @@
 <div class="profile-picture">
-  <img *ngIf="profile.avatar" [src]="profile.avatar">
-  <img *ngIf="!profile.avatar" src="../../assets/imgs/profile-placeholder.png">
+  <div class="img-circle">
+    <img *ngIf="profile.avatar" [src]="profile.avatar">
+    <img *ngIf="!profile.avatar" src="../../assets/imgs/profile-placeholder.png">
+  </div>
   <button ion-button clear (click)="takePhoto()">Upload foto</button>
 </div>
 <ion-item class="login__component">

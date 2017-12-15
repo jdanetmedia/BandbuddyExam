@@ -2,9 +2,24 @@ app-edit-profile-form {
   .profile-picture {
     background: color($colors, 'lgray');
     padding: 32px 16px 16px 16px;
-    img {
+    .img-circle {
       width: 100px;
-      height: auto;
+      height: 100px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 50%;
+      img {
+        min-width: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+      }
     }
   }
 }
