@@ -54,7 +54,8 @@ export class EditProfileFormComponent implements OnDestroy {
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,
-        correctOrientation: true
+        correctOrientation: true,
+        cameraDirection: 1
       }
       const result = await this.camera.getPicture(options);
 
@@ -63,7 +64,7 @@ export class EditProfileFormComponent implements OnDestroy {
       // const pictures = storage().ref('pictures/profilbillede');
       const pictures = storage().ref(`/profilbilleder/profil-${this.authenticatedUser.uid}`);
       pictures.putString(image, 'data_url');
-      this.profile.avatar = `https://firebasestorage.googleapis.com/v0/b/bandbuddyexam.appspot.com/o/profilbilleder%2Fprofil-${this.authenticatedUser.uid}?alt=media&token=2a61c0d5-2138-401a-89b4-d6169094458f`;
+      this.profile.avatar = image;
     }
     catch(e) {
       console.error(e);
