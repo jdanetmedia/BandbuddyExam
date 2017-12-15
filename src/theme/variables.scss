@@ -98,6 +98,12 @@ button {
   text-transform: uppercase !important;
 }
 
+page-login ion-input input,
+page-login ion-item {
+  color: #fff !important;
+  background: color($colors, green) !important;
+}
+
 .comment-icon button, #ion-diagnostics button {
   box-shadow: none;
 }
