@@ -15,10 +15,10 @@
     <ion-card *ngFor="let post of postList | async">
       <ion-item>
         <ion-avatar item-start>
-        <img *ngIf="post.avatar" [src]="post.avatar">
-      </ion-avatar>
+          <img *ngIf="post.avatar" [src]="post.avatar">
+        </ion-avatar>
         <p float-right>{{ post.date | date: 'dd/MM/yyyy'}}</p>
-      <h2 text-wrap>{{ post.author}}</h2>
+      <h2 text-wrap>{{ post.author }}</h2>
 
       </ion-item>
 
