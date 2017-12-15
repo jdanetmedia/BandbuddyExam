@@ -48,20 +48,23 @@ export class EditProfileFormComponent implements OnDestroy {
     try {
       // Camera options
       const options: CameraOptions = {
-        quality: 50,
         targetWidth: 600,
         targetHeight: 600,
+        quality: 50,
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,
-        correctOrientation: true
+        correctOrientation: true,
+        cameraDirection: 1
       }
       const result = await this.camera.getPicture(options);
 
       const image = `data:image/jpeg;base64,${result}`;
 
-      const pictures = storage().ref('pictures/profilbillede');
+      // const pictures = storage().ref('pictures/profilbillede');
+      const pictures = storage().ref(`/profilbilleder/profil-${this.authenticatedUser.uid}`);
       pictures.putString(image, 'data_url');
+      this.profile.avatar = image;
     }
     catch(e) {
       console.error(e);

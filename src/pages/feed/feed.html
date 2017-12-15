@@ -14,10 +14,12 @@
     <ion-card *ngFor="let post of postList | async" navPush="EditPostPage" [navParams]="{post: post}">
       <ion-item>
         <ion-avatar item-start>
-        <img *ngIf="post.avatar" [src]="post.avatar">
-      </ion-avatar>
+          <div class="img-circle">
+            <img *ngIf="post.avatar" [src]="post.avatar">
+          </div>
+        </ion-avatar>
         <p float-right>{{ post.date | date: 'dd/MM/yyyy'}}</p>
-      <h2 text-wrap>{{ post.author}}</h2>
+      <h2 text-wrap>{{ post.author }}</h2>
 
       </ion-item>
 
