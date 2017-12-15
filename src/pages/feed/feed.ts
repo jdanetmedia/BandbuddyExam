@@ -10,6 +10,7 @@ import { DataService } from "../../providers/data/data.service";
   selector: 'page-feed',
   templateUrl: 'feed.html',
 })
+
 export class FeedPage {
 
   postList: Observable<Post[]>;
@@ -22,6 +23,8 @@ export class FeedPage {
         return changes.map(c => ({
           key: c.payload.key, ...c.payload.val()
         }));
+      }).map( (arr) => {
+        return arr.reverse();
       });
   }
 
